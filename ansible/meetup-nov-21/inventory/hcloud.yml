@@ -1,0 +1,5 @@
+---
+# https://docs.ansible.com/ansible/latest/collections/hetzner/hcloud/hcloud_inventory.html#ansible-collections-hetzner-hcloud-hcloud-inventory
+plugin: hetzner.hcloud.hcloud
+label_selector: instance_type=demo
+api_token: "{{ lookup('community.general.onepassword', 'Hetzner Cloud API Token', field='token') }}"
