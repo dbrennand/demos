@@ -1,0 +1,6 @@
+ansible-core==2.17.5
+ansible-lint==24.9.2
+# Required by hetzner.hcloud collection
+requests==2.32.3
+# Required by the hetzner.hcloud.hcloud inventory plugin
+python-dateutil==2.9.0.post0

@@ -1,0 +1,36 @@
+---
+- name: Infrastructure as Code - VPS deprovisioning with Ansible on Hetzner Cloud
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Delete | Hetzner Cloud SSH Key
+      tags: ssh_key
+      hetzner.hcloud.ssh_key:
+        api_token: "{{ hetzner_cloud_api_token }}"
+        name: demo-ssh-key
+        public_key: "{{ lookup('file', '~/.ssh/id_rsa_demo.pub') }}"
+        state: absent
+
+    - name: Delete | Local SSH key
+      tags: ssh_key
+      community.crypto.openssh_keypair:
+        path: ~/.ssh/id_rsa_demo
+        state: absent
+
+    - name: Delete | Hetzner Cloud Servers
+      tags: server
+      loop: "{{ hetzner_cloud_servers }}"
+      hetzner.hcloud.server:
+        api_token: "{{ hetzner_cloud_api_token }}"
+        name: "{{ item.name }}"
+        state: absent
+
+    - name: Delete | Hetzner Cloud Firewall
+      tags: firewall
+      hetzner.hcloud.firewall:
+        api_token: "{{ hetzner_cloud_api_token }}"
+        name: demo-firewall
+        state: absent

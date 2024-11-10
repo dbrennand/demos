@@ -1,0 +1,45 @@
+---
+- name: Infrastructure as Code - Configure VPS on Hetzner Cloud | Wait for SSH to be ready
+  hosts: hcloud
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Wait for SSH to be ready
+      ansible.builtin.wait_for:
+        host: "{{ ansible_host }}"
+        port: 22
+        delay: 2
+
+- name: Infrastructure as Code - Configure VPS on Hetzner Cloud
+  hosts: hcloud
+  # When provisioning a new server on Hetzner Cloud, the default user is root
+  remote_user: root
+  vars:
+    # We must set the SSH extra arguments to avoid the prompt for adding the server to the known hosts file
+    ansible_ssh_extra_args: -o StrictHostKeyChecking=no
+    # We must specify the private key file to use for connecting to the server
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa_demo
+    # We must specify the Python interpreter to use on the server otherwise we will get an error
+    ansible_python_interpreter: /usr/bin/python3
+  handlers:
+    - name: Reload Nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
+  pre_tasks:
+    - name: Update system packages
+      ansible.builtin.apt:
+        name: "*"
+        only_upgrade: true
+        state: present
+  roles:
+    - nginxinc.nginx
+  post_tasks:
+    - name: Copy the Nginx configuration file
+      notify: Reload Nginx
+      ansible.builtin.copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+        owner: nginx
+        group: nginx
+        mode: u=rw,g=r,o=r

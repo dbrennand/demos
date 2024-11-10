@@ -1,0 +1,21 @@
+---
+# vars file for meetup-nov-21 playbooks
+
+# Hetzner Cloud API token
+hetzner_cloud_api_token: "{{ lookup('community.general.onepassword', 'Hetzner Cloud API Token', field='token') }}"
+
+# List of Hetzner cloud servers to be deployed
+hetzner_cloud_servers:
+  - name: demo-server-01
+    server_type: cx22
+    image: ubuntu-24.04
+    labels:
+      instance_type: demo
+    location: fsn1
+  # - name: demo-server-02
+  #  server_type: cx22
+  #  image: ubuntu-24.04
+  #  location: fsn1
+  #  labels:
+  #    instance_type: demo
+  #  state: started
