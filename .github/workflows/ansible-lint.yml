@@ -9,7 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run ansible-lint
-        uses: ansible/ansible-lint@main
+      - uses: actions/setup-python@v5
         with:
-          requirements_file: ansible/requirements.yml
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          # Install ansible-lint
+          pip install ansible-lint==24.9.2
+          # Install Python dependencies
+          find . -name requirements.txt -exec pip install -r {} \;
+          # Install Ansible dependencies
+          find . -name requirements.yml -exec ansible-galaxy install -r {} \;
+      - name: Run ansible-lint
+        run: ansible-lint
