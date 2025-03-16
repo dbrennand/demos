@@ -1,0 +1,20 @@
+---
+- name: Basic Playbook
+  hosts: all
+  become: true
+  vars:
+    username: bob
+    group: builder
+  tasks:
+    - name: "Create new group {{ group }}"
+      ansible.builtin.group:
+        name: "{{ group }}"
+        state: present
+
+    - name: "Create new user {{ username }}"
+      ansible.builtin.user:
+        name: "{{ username }}"
+        comment: Created using Ansible
+        group: "{{ group }}"
+        shell: /bin/bash
+        state: present
