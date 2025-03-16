@@ -1,0 +1,12 @@
+[project]
+name = "meetup-may"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ansible-core>=2.18.3",
+]
+
+[dependency-groups]
+dev = []
