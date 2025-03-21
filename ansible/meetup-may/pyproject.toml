@@ -9,4 +9,6 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = []
+dev = [
+    "ansible-lint>=25.1.3",
+]
