@@ -2,5 +2,5 @@ all:
   vars:
     ansible_user: ubuntu
   hosts:
-    ubuntu1@orb.local:
-    ubuntu2@orb.local:
+    ubuntu1@orb:
+    ubuntu2@orb:

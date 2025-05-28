@@ -1,17 +1,17 @@
 ---
-- name: Basic Playbook
+- name: Ansible 101 - Example Playbook
   hosts: all
   become: true
   vars:
     username: bob
     group: builder
   tasks:
-    - name: "Create new group {{ group }}"
+    - name: "Ensure group {{ group }} exists"
       ansible.builtin.group:
         name: "{{ group }}"
         state: present
 
-    - name: "Create new user {{ username }}"
+    - name: "Ensure user {{ username }} exists"
       ansible.builtin.user:
         name: "{{ username }}"
         comment: Created using Ansible

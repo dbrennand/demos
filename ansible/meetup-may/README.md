@@ -8,8 +8,8 @@ Ansible 101 - Getting Started.
 
 ## Prerequisites
 
-- [`uv`](https://docs.astral.sh/uv/).
-- [OrbStack](https://orbstack.dev/).
+- [`uv`](https://docs.astral.sh/uv/)
+- [OrbStack](https://orbstack.dev/)
 
 ## Dependencies
 
@@ -17,7 +17,7 @@ See [pyproject.toml](pyproject.toml) for Python dependencies.
 
 ## Usage
 
-### Initialise Environment
+### Initialise the Environment
 
 ```bash
 # Install dependencies
@@ -44,6 +44,6 @@ ansible all -i inventory/inventory.yml -m command -a "lsblk"
 
 ### Playbooks
 
-```
-ansible-playbook basic-playbook.yml
+```bash
+ansible-playbook -i inventory/inventory.yml example-playbook.yml
 ```
