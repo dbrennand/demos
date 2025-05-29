@@ -1,0 +1,6 @@
+---
+- name: Playbook | Ansible 101 | Install Apache
+  hosts: ubuntu1@orb
+  become: true
+  roles:
+    - role: geerlingguy.apache

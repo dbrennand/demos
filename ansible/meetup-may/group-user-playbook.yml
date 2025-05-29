@@ -1,5 +1,5 @@
 ---
-- name: Ansible 101 - Example Playbook
+- name: Playbook | Ansible 101 | Create group and user
   hosts: all
   become: true
   vars:
