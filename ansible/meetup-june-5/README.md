@@ -38,7 +38,7 @@ ansible-inventory -i inventory/inventory.yml --list
 ### Ad-hoc Commands
 
 ```bash
-ansible all -i inventory/inventory.yml -m command -a "useradd daniel"
+ansible all -i inventory/inventory.yml -b -m command -a "useradd daniel"
 ansible all -i inventory/inventory.yml -m command -a "lsblk"
 ```
 
