@@ -10,5 +10,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "ansible-dev-tools>=25.5.2",
     "ansible-lint==25.5.0",
 ]

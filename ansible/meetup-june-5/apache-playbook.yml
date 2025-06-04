@@ -4,3 +4,9 @@
   become: true
   roles:
     - role: geerlingguy.apache
+  tasks:
+    - name: Place index.html in /var/www/html/
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: u=rw,g=r,o=r
