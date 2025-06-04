@@ -10,3 +10,7 @@
         src: index.html
         dest: /var/www/html/index.html
         mode: u=rw,g=r,o=r
+  post_tasks:
+    - name: Visit apache
+      ansible.builtin.debug:
+        msg: Visit http://ubuntu1.orb.local

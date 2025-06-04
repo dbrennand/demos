@@ -53,4 +53,5 @@ ansible-galaxy install -r requirements.yml
 ```bash
 ansible-playbook -i inventory/inventory.yml group-user-playbook.yml
 ansible-playbook apache-playbook.yml
+ansible-playbook vault-playbook.yml --ask-vault-pass
 ```
