@@ -42,6 +42,12 @@ ansible all -i inventory/inventory.yml -m command -a "useradd daniel"
 ansible all -i inventory/inventory.yml -m command -a "lsblk"
 ```
 
+### Install Ansible Dependencies
+
+```bash
+ansible-galaxy install -r requirements.yml
+```
+
 ### Playbooks
 
 ```bash
