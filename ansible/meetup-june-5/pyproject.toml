@@ -1,7 +1,7 @@
 [project]
-name = "meetup-may"
+name = "meetup-june-5"
 version = "0.1.0"
-description = "Ansible 101 - Getting Started."
+description = "Ansible 101 - Getting Started on your Ansible journey."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
