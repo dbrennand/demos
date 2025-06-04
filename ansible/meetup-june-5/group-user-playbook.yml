@@ -6,12 +6,12 @@
     username: bob
     group: builder
   tasks:
-    - name: "Ensure group {{ group }} exists"
+    - name: Ensure group exists
       ansible.builtin.group:
         name: "{{ group }}"
         state: present
 
-    - name: "Ensure user {{ username }} exists"
+    - name: Ensure user exists
       ansible.builtin.user:
         name: "{{ username }}"
         comment: Created using Ansible
