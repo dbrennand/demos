@@ -1,10 +1,10 @@
-# Ansible Meetup - May 2025
+# Ansible Meetup - 5 June 2025
 
-This directory contains the Ansible content for my talk at the Ansible Meetup in May 2025.
+This directory contains the Ansible content for my talk at the Ansible Meetup on 5 June 2025.
 
 ## Talk Title
 
-Ansible 101 - Getting Started.
+Ansible 101 - Getting Started on your Ansible journey.
 
 ## Prerequisites
 
@@ -45,5 +45,6 @@ ansible all -i inventory/inventory.yml -m command -a "lsblk"
 ### Playbooks
 
 ```bash
-ansible-playbook -i inventory/inventory.yml example-playbook.yml
+ansible-playbook -i inventory/inventory.yml group-user-playbook.yml
+ansible-playbook apache-playbook.yml
 ```
