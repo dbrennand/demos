@@ -1,0 +1,15 @@
+[project]
+name = "meetup-june-5"
+version = "0.1.0"
+description = "Ansible 101 - Getting Started on your Ansible journey."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ansible-core==2.18.6",
+]
+
+[dependency-groups]
+dev = [
+    "ansible-dev-tools>=25.5.2",
+    "ansible-lint==25.5.0",
+]

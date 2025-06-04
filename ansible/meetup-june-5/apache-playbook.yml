@@ -1,0 +1,16 @@
+---
+- name: Playbook | Ansible 101 | Install Apache
+  hosts: ubuntu1@orb
+  become: true
+  roles:
+    - role: geerlingguy.apache
+  tasks:
+    - name: Place index.html in /var/www/html/
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: u=rw,g=r,o=r
+  post_tasks:
+    - name: Visit apache
+      ansible.builtin.debug:
+        msg: Visit http://ubuntu1.orb.local

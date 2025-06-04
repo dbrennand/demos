@@ -1,0 +1,6 @@
+all:
+  vars:
+    ansible_user: ubuntu
+  hosts:
+    ubuntu1@orb:
+    ubuntu2@orb:

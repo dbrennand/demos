@@ -1,0 +1,20 @@
+---
+- name: Playbook | Ansible 101 | Create group and user
+  hosts: all
+  become: true
+  vars:
+    username: bob
+    group: builder
+  tasks:
+    - name: Ensure group exists
+      ansible.builtin.group:
+        name: "{{ group }}"
+        state: present
+
+    - name: Ensure user exists
+      ansible.builtin.user:
+        name: "{{ username }}"
+        comment: Created using Ansible
+        group: "{{ group }}"
+        shell: /bin/bash
+        state: present
