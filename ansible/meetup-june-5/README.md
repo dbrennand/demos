@@ -13,7 +13,8 @@ Ansible 101 - Getting Started on your Ansible journey.
 
 ## Dependencies
 
-See [pyproject.toml](pyproject.toml) for Python dependencies.
+- See [pyproject.toml](pyproject.toml) for Python dependencies.
+- See [requirements.yml](requirements.yml) for Ansible dependencies.
 
 ## Usage
 
